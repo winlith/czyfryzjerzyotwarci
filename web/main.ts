@@ -103,8 +103,8 @@ function getState(lon: number, lat: number): Promise<string> {
         });
 }
 
-if (Date.now() < new Date(2021, 3, 26).getTime()) {
-    setAnswer(false);
+if (Date.now() >= new Date(2021, 4, 1).getTime()) {
+    setAnswer(true);
     document.getElementById('selectState').style.display='none';
 }
 else {
