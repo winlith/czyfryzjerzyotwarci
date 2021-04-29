@@ -117,3 +117,7 @@ dist
 
 # JS files
 *.js
+
+# Cypress
+videos/
+screenshots/
