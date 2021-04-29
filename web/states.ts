@@ -1,4 +1,6 @@
-[
+import { State } from 'state'
+
+const states: State[] = [
     {
         "name": "dolnośląskie",
         "enabled": false
@@ -64,3 +66,5 @@
         "enabled": true
     }
 ]
+
+export { states }

@@ -1,6 +1,4 @@
-import { State } from 'state'
-
-const states: State[] = new Array<State>();
+import { states } from 'states'
 
 const geoOptions = {
     enableHighAccuracy: true,
@@ -16,10 +14,6 @@ function setAnswer(status: boolean): void {
 
 async function setCurrentState(name: string | undefined): Promise<void> {
     if(name !== undefined) {
-        if(states.length===0) {
-            (await fetch('states.json').then(response=>response.json() as Promise<State[]>))
-            .forEach(state => { states.push(state); });
-        }
         const answer = states.find(state => state.name === name).enabled
         setAnswer(answer);
     }
