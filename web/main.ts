@@ -12,7 +12,7 @@ function setAnswer(status: boolean): void {
     element.style.color = status ? "green" : "red";
 }
 
-async function setCurrentState(name: string | undefined): Promise<void> {
+function setCurrentState(name: string | undefined): void {
     if(name !== undefined) {
         const answer = states.find(state => state.name === name).enabled
         setAnswer(answer);
