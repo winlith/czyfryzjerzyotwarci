@@ -1,4 +1,4 @@
-import { states } from 'states'
+import { states } from './states'
 
 const geoOptions = {
     enableHighAccuracy: true,
