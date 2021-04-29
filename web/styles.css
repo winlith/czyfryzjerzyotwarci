@@ -24,7 +24,7 @@ html, body {
     align-self: center;
 }
 
-.tooltip, .selectState {
+.tooltip, .stateText {
     font-size: normal;
     align-self: center;
 }

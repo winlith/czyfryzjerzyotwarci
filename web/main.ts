@@ -1,74 +1,4 @@
-interface State {
-    name: string;
-    enabled: boolean;
-}
-
-const states: State[] = [
-    {
-        name: 'dolnośląskie',
-        enabled: false
-    },
-    {
-        name: 'kujawsko-pomorskie',
-        enabled: true
-    },
-    {
-        name: 'lubelskie',
-        enabled: true
-    },
-    {
-        name: 'lubuskie',
-        enabled: true
-    },
-    {
-        name: 'łódzkie',
-        enabled: false
-    },
-    {
-        name: 'małopolskie',
-        enabled: true
-    },
-    {
-        name: 'mazowieckie',
-        enabled: true
-    },
-    {
-        name: 'opolskie',
-        enabled: false
-    },
-    {
-        name: 'podkarpackie',
-        enabled: true
-    },
-    {
-        name: 'podlaskie',
-        enabled: true
-    },
-    {
-        name: 'pomorskie',
-        enabled: true
-    },
-    {
-        name: 'śląskie',
-        enabled: false
-    },
-    {
-        name: 'świętokrzyskie',
-        enabled: true
-    },
-    {
-        name: 'warmińsko-mazurskie',
-        enabled: true
-    },
-    {
-        name: 'wielkopolskie',
-        enabled: false
-    },
-    {
-        name: 'zachodniopomorskie',
-        enabled: true
-    }
-]
+import { states } from './states.js'
 
 const geoOptions = {
     enableHighAccuracy: true,
@@ -82,33 +12,30 @@ function setAnswer(status: boolean): void {
     element.style.color = status ? "green" : "red";
 }
 
-function setCurrentState(state: string): void {
-    if(state !== undefined) {
-        setAnswer(states.find(s => s.name === state).enabled);
+function setCurrentState(name: string | undefined): void {
+    if(name !== undefined) {
+        const answer = states.find(state => state.name === name).enabled
+        setAnswer(answer);
     }
 }
 
 function getState(lon: number, lat: number): Promise<string> {
     return fetch(`api/search?point=${lon},${lat}`)
         .then(response => response.json())
-        .then(response => {
-            if (response.length > 0) {
-                return response[0].address.state;
-            }
-            else return undefined;
-        })
+        .then(response => response[0]?.address?.state)
         .catch(error => {
             console.log(error);
-            return undefined;
         });
 }
 
+const stateText = document.getElementById('stateText');
+const tooltip = document.getElementById('tooltip');
 if (Date.now() >= new Date(2021, 4, 1).getTime()) {
     setAnswer(true);
-    document.getElementById('selectState').style.display='none';
+    stateText.style.display='none';
 }
 else {
-    document.getElementById('tooltip').style.display='none';
+    tooltip.style.display='none';
     let select = document.getElementById('stateSelect') as HTMLSelectElement;
     states.forEach(s=>{
         let element = new Option();
