@@ -1,35 +1,47 @@
-html, body {
-    font-family: Helvetica, Arial, sans-serif;
-    color: white;
-    background-color: rgb(26, 27, 31);
+html,
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+  color: white;
+  background-color: rgb(26, 27, 31);
 }
 
 .title {
-    font-size: 48pt;
-    text-align: center;
+  font-size: 48pt;
+  text-align: center;
 }
 
 .container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .answer {
-    font-size: 64pt;
-    font-weight: bold;
-    align-self: center;
+  font-size: 64pt;
+  font-weight: bold;
+  align-self: center;
 }
 
-.tooltip, .stateText {
-    font-size: normal;
-    align-self: center;
+.tooltip,
+.stateText {
+  font-size: normal;
+  align-self: center;
 }
 
-select, select option {
-    color: white;
-    background-color: rgb(26, 27, 31);
+.footer {
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  font-size: 48pt;
+}
+
+select,
+select option {
+  color: white;
+  background-color: rgb(26, 27, 31);
 }
